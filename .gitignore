@@ -1,0 +1,6 @@
+# The virtual environment directory
+/venv
+
+# Byte-compiled Python files
+src/__pycache__/
+src/*.pyc
