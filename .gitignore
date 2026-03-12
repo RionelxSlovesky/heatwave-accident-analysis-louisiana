@@ -4,3 +4,6 @@
 # Byte-compiled Python files
 src/__pycache__/
 src/*.pyc
+
+# Jupyter Notebook checkpoints
+notebooks/.ipynb_checkpoints
