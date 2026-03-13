@@ -7,3 +7,6 @@ src/*.pyc
 
 # Jupyter Notebook checkpoints
 notebooks/.ipynb_checkpoints
+
+# Environment variables file
+.env
