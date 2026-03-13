@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent
 
 NOAA_TOKEN = os.getenv("NOAA_TOKEN")
 NOAA_BASE_URL = "https://www.ncei.noaa.gov/cdo-web/api/v2"

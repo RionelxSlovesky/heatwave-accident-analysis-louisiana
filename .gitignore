@@ -2,6 +2,8 @@
 /venv
 
 # Byte-compiled Python files
+__pycache__/
+*.pyc
 src/__pycache__/
 src/*.pyc
 
