@@ -8,6 +8,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 
 NOAA_TOKEN = os.getenv("NOAA_TOKEN")
 NOAA_BASE_URL = "https://www.ncei.noaa.gov/cdo-web/api/v2"
+PARISH_SHAPE_URL = "https://www2.census.gov/geo/tiger/TIGER2025/COUNTY/tl_2025_us_county.zip"
 
 BASELINE_OUTPUT_FILE = "weather_baseline_1981_2010_jul_aug.csv"
 ANALYSIS_OUTPUT_FILE = "weather_analysis_2015_2025_all_months.csv"
