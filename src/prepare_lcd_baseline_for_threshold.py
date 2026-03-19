@@ -3,7 +3,7 @@ import pandas as pd
 import geopandas as gpd
 from config import PROJECT_ROOT
 
-DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
+DATA_PROCESSED = PROJECT_ROOT / "data" / "final"
 
 INPUT_FILE = DATA_PROCESSED / "lcd_baseline_1981_2010_jul_aug_daily.csv"
 OUTPUT_FILE = DATA_PROCESSED / "lcd_baseline_1981_2010_jul_aug_daily_filled.csv"
@@ -74,14 +74,6 @@ def fill_variable_from_nearby(df, distance_df, variable):
     return filled_df, fill_count
 
 
-def f_to_c(temp_f):
-    return (temp_f - 32) * 5 / 9
-
-
-def mph_to_ms(speed_mph):
-    return speed_mph * 0.44704
-
-
 def vapor_pressure_from_dewpoint(td_c):
     return 6.105 * np.exp((17.27 * td_c) / (237.7 + td_c))
 
@@ -124,10 +116,10 @@ def main():
     print(df[weather_cols].isna().sum())
 
     # Apparent temperature inputs
-    df["avg_temp_c"] = f_to_c(df["avg_temp"])
-    df["min_temp_c"] = f_to_c(df["min_temp"])
-    df["avg_dew_point_c"] = f_to_c(df["avg_dew_point"])
-    df["avg_wind_speed_ms"] = mph_to_ms(df["avg_wind_speed"])
+    df["avg_temp_c"] = df["avg_temp"]
+    df["min_temp_c"] = df["min_temp"]
+    df["avg_dew_point_c"] = df["avg_dew_point"]
+    df["avg_wind_speed_ms"] = df["avg_wind_speed"]
 
     # Vapor pressure from dew point
     df["vapor_pressure_hpa"] = vapor_pressure_from_dewpoint(df["avg_dew_point_c"])

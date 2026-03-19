@@ -1,7 +1,7 @@
 import pandas as pd
 from config import PROJECT_ROOT
 
-DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
+DATA_PROCESSED = PROJECT_ROOT / "data" / "final"
 
 INPUT_FILE = DATA_PROCESSED / "lcd_baseline_1981_2010_jul_aug_daily_filled.csv"
 OUTPUT_FILE = DATA_PROCESSED / "parish_baseline_apparent_temp_thresholds.csv"

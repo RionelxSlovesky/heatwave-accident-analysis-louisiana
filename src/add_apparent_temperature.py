@@ -2,18 +2,10 @@ import numpy as np
 import pandas as pd
 from config import PROJECT_ROOT
 
-DATA_PROCESSED = PROJECT_ROOT / "data" / "processed"
+DATA_PROCESSED = PROJECT_ROOT / "data" / "final"
 
 INPUT_FILE = DATA_PROCESSED / "lcd_analysis_2015_2025_daily_filled.csv"
 OUTPUT_FILE = INPUT_FILE  # overwrite the same file
-
-
-def f_to_c(temp_f):
-    return (temp_f - 32) * 5 / 9
-
-
-def mph_to_ms(speed_mph):
-    return speed_mph * 0.44704
 
 
 def vapor_pressure_from_dewpoint(td_c):
@@ -32,13 +24,12 @@ def main():
     for col in weather_cols:
         df[col] = pd.to_numeric(df[col], errors="coerce")
 
-    # Convert from Fahrenheit to Celsius
-    df["avg_temp_c"] = f_to_c(df["avg_temp"])
-    df["min_temp_c"] = f_to_c(df["min_temp"])
-    df["avg_dew_point_c"] = f_to_c(df["avg_dew_point"])
+    df["avg_temp_c"] = df["avg_temp"]
+    df["min_temp_c"] = df["min_temp"]
+    df["avg_dew_point_c"] = df["avg_dew_point"]
 
-    # Convert wind speed from mph to m/s
-    df["avg_wind_speed_ms"] = mph_to_ms(df["avg_wind_speed"])
+
+    df["avg_wind_speed_ms"] = df["avg_wind_speed"]
 
     # Compute vapor pressure from dew point
     df["vapor_pressure_hpa"] = vapor_pressure_from_dewpoint(df["avg_dew_point_c"])
